@@ -4,6 +4,7 @@
     --light-green: #9CC49C;
     --lighter-green: #E9F3E9;
     --light-grey: #E5E5E5;
+    --grey: #C4C4C4;
 }
 
 html {
@@ -81,6 +82,10 @@ input {
     border-radius: 0px;
 }
 
+hr {
+    border: 1.5px solid var(--grey);
+}
+
 .arrow {
     height: 50px;
 }
@@ -112,7 +117,7 @@ header a {
 
 /*********** CONTENT ************/
 .content {
-    height: calc(100% - 150px);
+    min-height: calc(100% - 150px);
 }
 
 /*********** FOOTER ************/
@@ -190,6 +195,10 @@ footer * {
     text-align: center;
 }
 
+.home-container .product-container {
+    display: block;
+}
+
 .home-container .product-container > a {
     margin: 5px;
 }
@@ -260,6 +269,10 @@ footer * {
     display: flex;
 }
 
+.product-selectors {
+    align-items: baseline;
+}
+
 .product-image-slider {
     width: 50%;
     margin: 40px;
@@ -280,15 +293,40 @@ footer * {
 
 .product-buy {
     text-align: center;
+    margin: 20px 0;
 }
 
-/* Code source: https://css-tricks.com/five-methods-for-five-star-ratings/ */
+.product-options .btn-group {
+    display: flex;
+    margin-bottom: 20px;
+}
+.product-options .btn-group > * {
+    margin: auto;
+}
+.product-options .btn-group > input {
+    display: none;
+}
+.product-options .btn-group > .single-select > div {
+    cursor: pointer;
+    background-color: var(--lighter-green);
+    padding: 15px 10px;
+    border: 5px solid var(--lighter-green);
+    border-radius: 5px;
+}
+.product-options .btn-group > .selected > div{
+    border: 5px solid var(--green);
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* Rating Stars source: https://css-tricks.com/five-methods-for-five-star-ratings/ */
 .product-stars {
   --percent: calc(var(--rating) / 5 * 100%);
 
   display: inline-block;
   font-family: Times; /* make sure ★ appears correctly */
   line-height: 1;
+  margin: 0 2px;
 }
 
 .product-stars::before {
@@ -307,6 +345,10 @@ footer * {
     }
 }
 
+.product-reviews {
+    margin-left: 20px;
+}
+
 /*********** ACCOUNT ************/
 .account-container {
     display: flex;
@@ -317,7 +359,7 @@ footer * {
     width: 20%;
     height: 300px;
     text-align: center;
-    border-right: 3px solid #C4C4C4;
+    border-right: 3px solid var(--grey);
 }
 
 .account-container nav a {
