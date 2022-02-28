@@ -1,0 +1,108 @@
+body {
+    margin: 0;
+    color: teal;
+    font-family: 'Roboto', sans-serif;
+}
+
+/*********** TYPOGRAPHY ************/
+h1 {
+    font-size: 36px;
+}
+
+h2 {
+    font-size: 30px;
+}
+
+h3 {
+    font-size: 24px;
+}
+
+.text-lg {
+    font-size: 18px;
+}
+
+.text {
+    font-size: 14px;
+}
+
+.text-sm {
+    font-size: 12px;
+}
+
+/*********** HEADER ************/
+header {
+    padding: 10px 25px;
+    height: 80px;
+    background: linear-gradient(90.4deg, #649D64 0%, rgba(100, 157, 100, 0) 100%), #FFFFFF;
+    display: flex;
+}
+
+header * {
+    margin: auto;
+}
+
+header nav {
+    width: 100%;
+    text-align: right;
+}
+
+header a {
+    margin-right: 90px;
+}
+
+.header-icon {
+    text-align: left;
+}
+
+/*********** FOOTER ************/
+footer {
+    position: fixed;
+    bottom: 0;
+    height: 50px;
+    padding: 0 40px;
+    background-color: white;
+    display: flex;
+    width: calc(100% - 80px);
+}
+
+footer * {
+    margin: auto;
+}
+
+.footer-title {
+    font-family: 'Poppins', sans-serif;
+    font-style: italic;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+}
+
+.footer-copyright {
+    width: 100%;
+    text-align: right;
+    font-family: 'Poppins', sans-serif;
+    font-style: italic;
+    letter-spacing: 0.05em;
+}
+
+/*********** LISTS ************/
+#todo-lists {
+    margin: 0 auto;
+    width: 80%;
+    padding-top: 10px;
+}
+
+.list {
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #eeeeee;
+    border: 1px solid #cccccc;
+}
+
+.list a {
+    color: teal;
+    text-decoration: none;
+}
+
+.list-title {
+    margin-left: 20px;
+}
