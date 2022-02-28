@@ -91,7 +91,9 @@ input[type="button"] {
 }
 
 hr {
-    border: 1.5px solid var(--grey);
+    border: none;
+    height: 3px;
+    background-color: var(--grey);
 }
 
 .arrow {
