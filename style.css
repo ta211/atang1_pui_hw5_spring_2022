@@ -1,3 +1,11 @@
+:root {
+    --darker-green: #457b45;
+    --green: #649D64;
+    --light-green: #9CC49C;
+    --lighter-green: #E9F3E9;
+    --light-grey: #E5E5E5;
+}
+
 html {
     height: 100%;
 }
@@ -35,15 +43,15 @@ h3 {
 
 /*********** COLORS ************/
 .bg-green-light {
-    background-color: #E9F3E9;
+    background-color: var(--lighter-green);
 }
 
 .bg-green {
-    background-color: #649D64;
+    background-color: var(--green);
 }
 
 .bg-grey {
-    background-color: #E5E5E5;
+    background-color: var(--light-grey);
 }
 
 /*********** COMPONENTS ************/
@@ -52,15 +60,16 @@ button {
     border: 0px;
     padding: 5px;
     height: 40px !important;
-    background-color: #649D64;
+    background-color: var(--green);
     color: white;
     font-size: 24px; /* h2 */
     font-weight: bold;
+    min-width: 300px;
 }
 
 button:hover {
     cursor: pointer;
-    background-color: #457b45;
+    background-color: var(--darker-green);
 }
 
 button h2 {
@@ -76,7 +85,7 @@ input {
 header {
     padding: 10px 25px;
     height: 80px;
-    background: linear-gradient(90.4deg, #649D64 0%, rgba(100, 157, 100, 0) 100%), #FFFFFF;
+    background: linear-gradient(90.4deg, var(--green) 0%, rgba(100, 157, 100, 0) 100%), #FFFFFF;
     display: flex;
 }
 
@@ -104,7 +113,7 @@ header a {
 
 /*********** FOOTER ************/
 footer {
-    color: #649D64;
+    color: var(--green);
     height: 50px;
     padding: 0 40px;
     background-color: white;
@@ -240,6 +249,40 @@ footer * {
     margin: 10px 0 20px 0;
     width: 100%;
     height: 30px;
+}
+
+/*********** PRODUCT ************/
+.product-container, .product-rating, .product-selectors {
+    display: flex;
+}
+
+.product-buy {
+    text-align: center;
+}
+
+/* Code source: https://css-tricks.com/five-methods-for-five-star-ratings/ */
+.product-stars {
+  --percent: calc(var(--rating) / 5 * 100%);
+
+  display: inline-block;
+  font-family: Times; /* make sure ★ appears correctly */
+  line-height: 1;
+}
+
+.product-stars::before {
+    content: '★★★★★';
+    letter-spacing: 3px;
+    background: linear-gradient(90deg, var(--green) var(--percent), var(--lighter-green) var(--percent));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@supports (-webkit-text-stroke: 1px black) {
+    .product-stars {
+        -webkit-text-stroke: 1px black;
+        -webkit-text-fill-color: white;
+    }
 }
 
 /*********** ACCOUNT ************/
