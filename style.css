@@ -1,4 +1,5 @@
 :root {
+    --black-green: #002000;
     --darker-green: #457b45;
     --green: #649D64;
     --light-green: #9CC49C;
@@ -80,6 +81,13 @@ button h2 {
 input {
     box-sizing: border-box;
     border-radius: 0px;
+    min-height: 25px;
+}
+
+input[type="button"] {
+    cursor: pointer;
+    background-color: white !important;
+    border: none;
 }
 
 hr {
@@ -269,33 +277,54 @@ footer * {
     display: flex;
 }
 
-.product-selectors {
-    align-items: baseline;
-}
-
+/********* PRODUCT - LEFT *********/
 .product-image-slider {
     width: 50%;
     margin: 40px;
 }
-
 .product-image-slider > * {
     margin: auto;
 }
-
 #product-current-image {
     width: 60%;
 }
 
+/********* PRODUCT - RIGHT *********/
 .product-info-container {
     width: 50%;
     margin: 40px 150px 40px 50px;
 }
 
-.product-buy {
-    text-align: center;
-    margin: 20px 0;
+/******* PRODUCT - RIGHT - RATING *******/
+/* Rating Stars source: https://css-tricks.com/five-methods-for-five-star-ratings/ */
+.product-stars {
+    --percent: calc(var(--rating) / 5 * 100%);
+
+    display: inline-block;
+    font-family: Times; /* make sure ★ appears correctly */
+    line-height: 1;
+    margin: 0 2px;
+    }
+.product-stars::before {
+    content: '★★★★★';
+    letter-spacing: 3px;
+    background: linear-gradient(90deg, var(--green) var(--percent), var(--lighter-green) var(--percent));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+@supports (-webkit-text-stroke: 1px black) {
+    .product-stars {
+        -webkit-text-stroke: 1px black;
+        -webkit-text-fill-color: white;
+    }
 }
 
+.product-reviews {
+    margin-left: 20px;
+}
+
+/******* PRODUCT - RIGHT - OPTIONS *******/
 .product-options .btn-group {
     display: flex;
     margin-bottom: 20px;
@@ -317,36 +346,46 @@ footer * {
     border: 5px solid var(--green);
     border-radius: 5px;
     font-weight: bold;
+    color: var(--black-green);
 }
 
-/* Rating Stars source: https://css-tricks.com/five-methods-for-five-star-ratings/ */
-.product-stars {
-  --percent: calc(var(--rating) / 5 * 100%);
-
-  display: inline-block;
-  font-family: Times; /* make sure ★ appears correctly */
-  line-height: 1;
-  margin: 0 2px;
+/******* PRODUCT - RIGHT - SELECTORS *******/
+.product-selectors {
+    align-items: baseline;
+}
+.product-selectors > div {
+    width: 50%;
+}
+/* quantity selector */
+.product-selectors .quantity-input-group {
+    width: 50%;
+    margin: 20px auto 20px 40px;
+}
+.quantity-input-group .disabled {
+    color: grey;
+}
+.quantity-input-group {
+    display: flex;
+    border: solid 1px black;
+}
+.quantity-input-group input {
+    text-align: center;
+    border: none;
+    width: 100%;
+}
+.quantity-input-group input::-webkit-outer-spin-button,
+.quantity-input-group input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+/* Firefox */
+.quantity-input-group input[type=number] {
+    -moz-appearance: textfield;
 }
 
-.product-stars::before {
-    content: '★★★★★';
-    letter-spacing: 3px;
-    background: linear-gradient(90deg, var(--green) var(--percent), var(--lighter-green) var(--percent));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-@supports (-webkit-text-stroke: 1px black) {
-    .product-stars {
-        -webkit-text-stroke: 1px black;
-        -webkit-text-fill-color: white;
-    }
-}
-
-.product-reviews {
-    margin-left: 20px;
+.product-buy {
+    text-align: center;
+    margin: 20px 0;
 }
 
 /*********** ACCOUNT ************/

@@ -72,7 +72,12 @@
                     <hr>
                     <div class="product-selectors">
                         <div class="quantity-selector text">
-                            <p>Quantity</p>
+                            <label for="quantity">Quantity</label>
+                            <div class="quantity-input-group">
+                                <input type="button" value="-" class="quantity-minus disabled" data-field="quantity" onclick="decrementQuantity(this)">
+                                <input type="number" min="1" value="1" name="quantity" class="quantity-field" onchange="updateQuantity(this)">
+                                <input type="button" value="+" class="quantity-plus" data-field="quantity" onclick="incrementQuantity(this)">
+                            </div>
                         </div>
                         <div class="delivery-span-selector">
                             <p>Delivery every</p>
