@@ -22,11 +22,11 @@ h3 {
 }
 
 .text-lg {
-    font-size: 16px;
+    font-size: 18px;
 }
 
 .text {
-    font-size: 14px;
+    font-size: 15px;
 }
 
 .text-sm {
@@ -40,6 +40,10 @@ h3 {
 
 .bg-green {
     background-color: #649D64;
+}
+
+.bg-grey {
+    background-color: #E5E5E5;
 }
 
 /*********** COMPONENTS ************/
@@ -132,11 +136,14 @@ footer * {
     padding: 15px 30px 0 30px;
 }
 
+.home-product-categories {
+    margin: 15px;
+}
+
 .home-nav {
     width: 100%;
     display: flex;
     align-items: flex-end;
-    margin: 15px;
 }
 
 .home-nav a {
@@ -152,6 +159,64 @@ footer * {
 
 #view-more-product img {
     height: 16px;
+}
+
+.home-products {
+    margin-top: 30px;
+    display: flex;
+}
+
+.home-products > * {
+    margin: 0 30px;
+}
+
+.home-products .product-bg {
+    width: 250px;
+    height: auto;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.product-container > a {
+    margin: 5px;
+}
+
+.product-bg img{
+    width: 200px;
+    height: 180px;
+    margin: 5px 0;
+}
+
+.product-info {
+    background-color: white;
+    opacity: 70%;
+    padding: 0 20px 10px 20px;
+    text-align: left;
+}
+
+.product-info p {
+    margin: 0;
+    line-height: 2;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.product-info > .second-line {
+    display: flex;
+}
+
+.product-info > .second-line > .options {
+    white-space: nowrap;
+    width: 80%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.product-info > .second-line > .price {
+    width: 20%;
+    text-align: right;
+    font-weight: bold;
 }
 
 /*********** LOGIN ************/
