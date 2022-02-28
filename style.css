@@ -81,6 +81,10 @@ input {
     border-radius: 0px;
 }
 
+.arrow {
+    height: 50px;
+}
+
 /*********** HEADER ************/
 header {
     padding: 10px 25px;
@@ -252,8 +256,26 @@ footer * {
 }
 
 /*********** PRODUCT ************/
-.product-container, .product-rating, .product-selectors {
+.product-container, .product-image-slider, .product-rating, .product-selectors {
     display: flex;
+}
+
+.product-image-slider {
+    width: 50%;
+    margin: 40px;
+}
+
+.product-image-slider > * {
+    margin: auto;
+}
+
+#product-current-image {
+    width: 60%;
+}
+
+.product-info-container {
+    width: 50%;
+    margin: 40px 150px 40px 50px;
 }
 
 .product-buy {
