@@ -1,24 +1,28 @@
+html {
+    height: 100%;
+}
+
 body {
+    height: 100%;
     margin: 0;
-    color: teal;
     font-family: 'Roboto', sans-serif;
 }
 
 /*********** TYPOGRAPHY ************/
 h1 {
-    font-size: 36px;
-}
-
-h2 {
     font-size: 30px;
 }
 
-h3 {
+h2 {
     font-size: 24px;
 }
 
-.text-lg {
+h3 {
     font-size: 18px;
+}
+
+.text-lg {
+    font-size: 16px;
 }
 
 .text {
@@ -27,6 +31,27 @@ h3 {
 
 .text-sm {
     font-size: 12px;
+}
+
+/*********** COMPONENTS ************/
+button {
+    border-radius: 0px;
+    border: 0px;
+    padding: 5px;
+    height: 40px !important;
+    background-color: #649D64;
+    color: white;
+    font-size: 24px; /* h2 */
+    font-weight: bold;
+}
+
+button h2 {
+    margin: 0px !important;
+}
+
+input {
+    box-sizing: border-box;
+    border-radius: 0px;
 }
 
 /*********** HEADER ************/
@@ -54,10 +79,14 @@ header a {
     text-align: left;
 }
 
+/*********** CONTENT ************/
+.content {
+    height: calc(100% - 150px);
+}
+
 /*********** FOOTER ************/
 footer {
-    position: fixed;
-    bottom: 0;
+    color: #649D64;
     height: 50px;
     padding: 0 40px;
     background-color: white;
@@ -84,25 +113,25 @@ footer * {
     letter-spacing: 0.05em;
 }
 
-/*********** LISTS ************/
-#todo-lists {
-    margin: 0 auto;
-    width: 80%;
-    padding-top: 10px;
+/*********** LOGIN ************/
+#login-container {
+    width: 40%;
+    text-align: center;
+    margin: 60px auto;
 }
 
-.list {
-    padding: 10px;
-    margin-bottom: 10px;
-    background-color: #eeeeee;
-    border: 1px solid #cccccc;
+#login-container h1 {
+    font-weight: bold;
 }
 
-.list a {
-    color: teal;
-    text-decoration: none;
+#login-form {
+    margin: 20px 25%;
+    width: 50%;
+    text-align: left;
 }
 
-.list-title {
-    margin-left: 20px;
+#login-form * {
+    margin: 10px 0 20px 0;
+    width: 100%;
+    height: 30px;
 }
