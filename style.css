@@ -356,13 +356,14 @@ footer * {
 .product-selectors > div {
     width: 50%;
 }
+
 /* quantity selector */
-.product-selectors .quantity-input-group {
+.product-selectors > div div:nth-child(2) {
     width: 50%;
     margin: 20px auto 20px 40px;
 }
 .quantity-input-group .disabled {
-    color: grey;
+    color: white;
 }
 .quantity-input-group {
     display: flex;
@@ -381,6 +382,15 @@ footer * {
 /* Firefox */
 .quantity-input-group input[type=number] {
     -moz-appearance: textfield;
+}
+
+/* delivery span selector */
+select {
+    height: 25px;
+    border: solid 1px black;
+}
+.delivery-span-dropdown select {
+    width: 100%;
 }
 
 .product-buy {
