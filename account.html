@@ -20,27 +20,29 @@
             </h1>
             <nav>
                 <a href="index.html"><img src="files/icons/search.svg" alt="search for item"></a>
-                <a href="login.html"><img src="files/icons/account.svg" alt="account"></a>
+                <a href="account.html"><img src="files/icons/account.svg" alt="account"></a>
                 <a href="cart.html"><img src="files/icons/cart.svg" alt="cart"></a>
             </nav>
         </header>
 
         <div class="content">
-            <div class="login-container">
-                <h1>Account</h1>
-                <hr>
-                <h2 class="login-notice">You need to log in first to get access to your account information.</h2>
-                <hr>
-                <div class="login-form">
-                    <label for="username" class="text-lg">Username</label>
+            <div class="account-container">
+                <nav class="account-nav">
+                    <a class="selected">Dashboard</a>
                     <br>
-                    <input id="username" type="text"></input>
+                    <a>Account</a>
                     <br>
-                    <label for="password">Password</label>
-                    <br>
-                    <input id="password" type="text"></input>
-                    <br>
-                    <button onclick="window.location.href='account.html'"><h2>Log in</h2></button>
+                    <a id="account-nav-logout" href="index.html">Log out</a>
+                </nav>
+                <div class="account-content">
+                    <nav>
+                        <a class="selected">Upcoming</a>
+                        <a>All Subscriptions</a>
+                    </nav>
+                    <div class="bg-green-light text-lg" id="account-subscriptions">
+                        <p style="font-weight: bold;">You have no upcoming subscriptions yet!</p>
+                        <p>Go <a href="index.html">shopping</a>.</p>
+                    </div>
                 </div>
             </div>
         </div>
