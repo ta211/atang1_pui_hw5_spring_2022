@@ -127,6 +127,33 @@ footer * {
     letter-spacing: 0.05em;
 }
 
+/*********** HOME ************/
+.home-container {
+    padding: 15px 30px 0 30px;
+}
+
+.home-nav {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    margin: 15px;
+}
+
+.home-nav a {
+    text-decoration: underline;
+    font-size: 18px;
+    margin-right: 50px;
+}
+
+#view-more-product {
+    width: 100%;
+    text-align: right;
+}
+
+#view-more-product img {
+    height: 16px;
+}
+
 /*********** LOGIN ************/
 .login-container {
     width: 40%;
