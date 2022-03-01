@@ -74,10 +74,6 @@ button:hover {
     background-color: var(--darker-green);
 }
 
-button h2 {
-    margin: 0px !important;
-}
-
 input {
     box-sizing: border-box;
     border-radius: 0px;
@@ -299,6 +295,10 @@ footer * {
 }
 
 /******* PRODUCT - RIGHT - RATING *******/
+.product-rating {
+    margin-bottom: 20px;
+}
+
 /* Rating Stars source: https://css-tricks.com/five-methods-for-five-star-ratings/ */
 .product-stars {
     --percent: calc(var(--rating) / 5 * 100%);
@@ -338,7 +338,7 @@ footer * {
 .product-options .btn-group > input {
     display: none;
 }
-.product-options .btn-group > .single-select > div {
+.product-options .btn-group > .single-select {
     cursor: pointer;
     background-color: var(--lighter-green);
     padding: 15px 10px;
@@ -346,7 +346,7 @@ footer * {
     border-radius: 5px;
     text-align: center;
 }
-.product-options .btn-group > .selected > div{
+.product-options .btn-group > .selected {
     border: 5px solid var(--green);
     border-radius: 5px;
     font-weight: bold;
@@ -354,6 +354,10 @@ footer * {
 }
 
 /******* PRODUCT - RIGHT - SELECTORS *******/
+.product-info-container .product-selectors {
+    margin-top: 20px;
+}
+
 .product-selectors {
     align-items: baseline;
 }
@@ -456,7 +460,6 @@ select {
     display: flex;
 }
 .subscription-checkbox label .price {
-    font-weight: bold;
     margin-left: 20px;
 }
 .cart-item-selectors .quantity-and-delivery {
