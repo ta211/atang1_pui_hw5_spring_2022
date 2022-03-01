@@ -94,6 +94,7 @@ hr {
     border: none;
     height: 3px;
     background-color: var(--grey);
+    margin: 0;
 }
 
 .arrow {
@@ -399,6 +400,78 @@ select {
 .product-buy {
     text-align: center;
     margin: 20px 0;
+}
+
+/*********** CART ************/
+.cart-container {
+    text-align: center;
+    padding-top: 60px;
+}
+
+.cart-items-container {
+    width: 70%;
+    margin: 0 auto;
+}
+.cart-items-container .cart-item {
+    height: 140px;
+}
+.cart-items-container .cart-item:nth-child(odd) {
+    background-color: white;
+}
+.cart-items-container .cart-item:nth-child(even) {
+    background-color: var(--lighter-green);
+}
+
+.cart-item {
+    display: flex;
+    padding: 20px 0;
+}
+
+.cart-item-img {
+    width: 18%;
+}
+.cart-item-img img {
+    height: 140px;
+    width: 120px;
+}
+
+.cart-item-info {
+    width: 18%;
+    text-align: left;
+    padding: 5px;
+}
+.cart-item-info > div {
+    margin-bottom: 7px;
+}
+
+.cart-item-selectors {
+    width: 64%;
+    text-align: left;
+}
+.subscription-checkbox {
+    display: flex;
+    align-items: center;
+}
+.subscription-checkbox label {
+    display: flex;
+}
+.subscription-checkbox label .price {
+    font-weight: bold;
+    margin-left: 20px;
+}
+.cart-item-selectors .quantity-and-delivery {
+    display: flex;
+    align-items: baseline;
+    margin-top: 20px;
+}
+
+.cart-total {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+.cart-total button {
+    margin-left: 40px;
 }
 
 /*********** ACCOUNT ************/
