@@ -1,4 +1,16 @@
 // Product page
+let loggedin = false;
+let user = {username: '', password: ''};
+
+function login() {
+    let username = document.getElementById("username");
+    let password = document.getElementById("password");
+    user.username = username;
+    user.password = password;
+    loggedin = true;
+    window.location.href='account.html';
+}
+
 function productBtnGroupUpdate(item) {
     // De-selected previously selected item
     let selected = item.parentNode.getElementsByClassName("selected");
