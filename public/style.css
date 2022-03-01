@@ -449,7 +449,7 @@ select {
 }
 
 .cart-item-selectors {
-    width: 64%;
+    width: 57%;
     text-align: left;
 }
 .subscription-checkbox {
@@ -466,6 +466,12 @@ select {
     display: flex;
     align-items: baseline;
     margin-top: 20px;
+}
+
+.cart-item-removal {
+    cursor: pointer;
+    width: 5%;
+    margin: auto 10px;
 }
 
 .cart-total {
