@@ -1,14 +1,25 @@
-// Product page
-let loggedin = false;
-let user = {username: '', password: ''};
-
 function login() {
     let username = document.getElementById("username");
     let password = document.getElementById("password");
-    user.username = username;
-    user.password = password;
-    loggedin = true;
-    window.location.href='account.html';
+    // user.username = username;
+    // user.password = password;
+    window.localStorage.setItem("logged-in", true);
+    gotoAccountPage('');
+}
+
+function logout() {
+    window.localStorage.setItem("logged-in", false);
+    gotoAccountPage('');
+}
+
+function gotoAccountPage(prefix) {
+    const loggedin = window.localStorage.getItem("logged-in");
+    console.log(loggedin);
+    if (loggedin == "true") {
+        window.location.href = prefix + 'account.html';
+    } else {
+        window.location.href = prefix + 'login.html';
+    }
 }
 
 function productBtnGroupUpdate(item) {
