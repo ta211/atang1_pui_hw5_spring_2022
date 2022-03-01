@@ -307,7 +307,7 @@ footer * {
     font-family: Times; /* make sure ★ appears correctly */
     line-height: 1;
     margin: 0 2px;
-    }
+}
 .product-stars::before {
     content: '★★★★★';
     letter-spacing: 3px;
