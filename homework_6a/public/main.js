@@ -1,5 +1,5 @@
 /******************** Classes ********************/
-function CartItem(name, subscribe, option, price, quantity, span, img, link) {
+function CartItem(name, subscribe, option, price, quantity, span, img, alt, link) {
     this.name = name; // "Protein Shakes"
     this.subscribe = subscribe; // boolean
     this.option = option; // "<option name>: <selected option>"
@@ -7,6 +7,7 @@ function CartItem(name, subscribe, option, price, quantity, span, img, link) {
     this.quantity = quantity; // integer >= 1
     this.span = span; // "1 week"
     this.img = img; // "files/products/drink-1.png"
+    this.alt = alt;
     this.link = link; // "products/drinks/drink-1.html"
 }
 
@@ -86,13 +87,14 @@ function addToCart(method) {
     const quantity = document.getElementById("quantity").value;
     const span = document.getElementById("delivery-span").value;
     const img = document.getElementById("product-current-image").getAttribute("src").substring(6);
+    const alt = document.getElementById("product-current-image").getAttribute("alt");
     const link = document.location.href;
 
     let item;
     if (method == "subscribe") {
-        item = new CartItem(name, true, option, price, quantity, span, img, link);
+        item = new CartItem(name, true, option, price, quantity, span, img, alt, link);
     } else if (method == "one-time") {
-        item = new CartItem(name, false, option, price, quantity, span, img, link);
+        item = new CartItem(name, false, option, price, quantity, span, img, alt, link);
     }
 
     let cart = JSON.parse(localStorage.getItem("cart"));
@@ -116,4 +118,70 @@ function loadCartSize() {
     }
     element.removeChild(element.lastChild);
     element.appendChild(document.createTextNode("("+cartSize+")"));
+}
+
+function loadCartContent() {
+    let cart = JSON.parse(localStorage.getItem("cart"));
+    if (Array.isArray(cart)) {
+        // hide the notice
+        document.getElementById("empty-notice").classList.add("hidden");
+        // get the template
+        let cartItemTemplate = document.getElementById("cart-item-template");
+        // load each item into the template
+        let totalPrice = 0;
+        for (let entry of cart.entries()) {
+            let i = entry[0];
+            let item = entry[1];
+            console.log(item);
+            
+            let cartItem = cartItemTemplate.cloneNode(true);
+            cartItem.setAttribute("id", "cart-item-"+i);
+            console.log(cartItem);
+            // Set up item image
+            let imgNode = document.createElement("img");
+            imgNode.setAttribute("src", item.img);
+            imgNode.setAttribute("alt", item.alt);
+            let aNode = document.createElement("a");
+            aNode.setAttribute("href", item.link);
+            aNode.appendChild(imgNode);
+            cartItem.getElementsByClassName("cart-item-img")[0].appendChild(aNode);
+            // Set up item info - name & options
+            cartItem.getElementsByClassName("item-name")[0].textContent = item.name;
+            cartItem.getElementsByClassName("item-option")[0].textContent = item.option;
+            // Set up item price
+            cartItem.getElementsByClassName("price")[0].textContent = item.price;
+            totalPrice += Number.parseFloat(item.price.substring(1)) * item.quantity;
+            // Set up checkbox
+            let checkbox = cartItem.getElementsByClassName("subscription-checkbox")[0].getElementsByTagName("input")[0];
+            checkbox.setAttribute("id", "subscription-"+i);
+            checkbox.setAttribute("name", "subscription-"+i);
+            checkbox.checked=item.subscribe;
+            if (item.subscribe) {
+                checkbox.setAttribute("class", "checked");
+            } else {
+                checkbox.setAttribute("class", "");
+            }
+            // Set up quantity
+            let quantitySelector = cartItem.getElementsByClassName("quantity-selector")[0];
+            quantitySelector.getElementsByTagName("label")[0].setAttribute("for", "quantity-"+i);
+            quantitySelector.getElementsByClassName("quantity-minus")[0].setAttribute("data-field", "quantity-"+i);
+            quantitySelector.getElementsByClassName("quantity-plus")[0].setAttribute("data-field", "quantity-"+i);
+            let quantityField = quantitySelector.getElementsByClassName("quantity-field")[0];
+            quantityField.setAttribute("id", "quantity-"+i);
+            quantityField.setAttribute("name", "quantity-"+i);
+            quantityField.value = item.quantity;
+            updateQuantity(quantityField);
+            // Set up delivery
+            let spanSelector = cartItem.getElementsByTagName("select")[0];
+            spanSelector.setAttribute("id", "delivery-span-"+i);
+            spanSelector.setAttribute("name", "delivery-span-"+i);
+            spanSelector.value = item.span;
+            // Append item to cart-items-inner
+            console.log(cartItem);
+            document.getElementById("cart-items-inner").appendChild(cartItem);
+        }
+        document.getElementById("cart-total-price").textContent = "Total: $" + totalPrice.toFixed(2);
+    } else {
+        document.getElementById("empty-notice").removeAttribute("class", "hidden");
+    }
 }

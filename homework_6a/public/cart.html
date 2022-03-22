@@ -13,7 +13,7 @@
         <script src="main.js" type="text/javascript"></script>
     </head>
 
-    <body>
+    <body onload="loadCartSize(); loadCartContent();">
         <header>
             <h1 class="header-icon">
                 <a href="index.html"><img src="files/icons/icon-full.svg" alt="FoodStory"></a> 
@@ -21,7 +21,7 @@
             <nav>
                 <a href="#"><img src="files/icons/search.svg" alt="search for item"></a>
                 <a onclick="gotoAccountPage('')"><img src="files/icons/account.svg" alt="account"></a>
-                <a href="cart.html" id="cart-icon"><img src="files/icons/cart.svg" alt="cart" onload="loadCartSize()">(0)</a>
+                <a href="cart.html" id="cart-icon"><img src="files/icons/cart.svg" alt="cart">(0)</a>
             </nav>
         </header>
 
@@ -30,62 +30,64 @@
                 <h1>Cart</h1>
                 <div class="cart-items-container">
                     <hr>
-                    <p class="text-lg">Your cart is empty! Go <a href="index.html">shopping</a> to add more items.</p>
-                    <div class="cart-item hidden">
-                        <div class="cart-item-img">
-                            <img src="" alt="">
-                        </div>
-                        <div class="cart-item-info">
-                            <div class="text-lg item-name">Product Name</div>
-                            <div class="text item-option">Option: Selected</div>
-                        </div>
-                        <div class="cart-item-selectors">
-                            <div class="subscription-checkbox text">
-                                <input type="checkbox" name="subscription" id="subscription" class="checked" checked>
-                                <label for="subscription">
-                                    Subscribe and Save
-                                    <b class="price">
-                                        $Price
-                                    </b>
-                                </label>
+                    <p id="empty-notice" class="text-lg">Your cart is empty! Go <a href="index.html">shopping</a> to add more items.</p>
+                    <div id="cart-items-inner">
+                        <div id="cart-item-template" class="cart-item">
+                            <div class="cart-item-img">
+                                <!-- <img src="" alt=""> -->
                             </div>
-                            <div class="quantity-and-delivery product-selectors">
-                                <div class="quantity-selector text">
-                                    <label for="quantity">Quantity</label>
-                                    <div class="quantity-input-group">
-                                        <input type="button" value="-" class="quantity-minus disabled" data-field="quantity" onclick="decrementQuantity(this)">
-                                        <input type="number" min="1" value="1" name="quantity"  id="quantity" class="quantity-field" onchange="updateQuantity(this)">
-                                        <input type="button" value="+" class="quantity-plus" data-field="quantity" onclick="incrementQuantity(this)">
+                            <div class="cart-item-info">
+                                <div class="text-lg item-name">Product Name</div>
+                                <div class="text item-option">Option: Selected</div>
+                            </div>
+                            <div class="cart-item-selectors">
+                                <div class="subscription-checkbox text">
+                                    <input type="checkbox" name="subscription" id="subscription" class="checked">
+                                    <label for="subscription">
+                                        Subscribe and Save
+                                        <b class="price">
+                                            $Price
+                                        </b>
+                                    </label>
+                                </div>
+                                <div class="quantity-and-delivery product-selectors">
+                                    <div class="quantity-selector text">
+                                        <label for="quantity">Quantity</label>
+                                        <div class="quantity-input-group">
+                                            <input type="button" value="-" class="quantity-minus disabled" data-field="quantity" onclick="decrementQuantity(this)">
+                                            <input type="number" min="1" value="1" name="quantity"  id="quantity" class="quantity-field" onchange="updateQuantity(this)">
+                                            <input type="button" value="+" class="quantity-plus" data-field="quantity" onclick="incrementQuantity(this)">
+                                        </div>
+                                    </div>
+                                    <div class="delivery-span-selector">
+                                        <label for="delivery-span">Deliver every</label>
+                                        <div class="delivery-span-dropdown">
+                                            <select name="delivery-span" id="delivery-span">
+                                                <option value="1-wk">1 week</option>
+                                                <option value="2-wk">2 weeks</option>
+                                                <option value="3-wk">3 weeks</option>
+                                                <option value="1-mo">1 month</option>
+                                                <option value="1.5-mo">1.5 month</option>
+                                                <option value="2-mo">2 month</option>
+                                                <option value="3-mo">3 month</option>
+                                                <option value="4-mo">4 month</option>
+                                                <option value="5-mo">5 month</option>
+                                                <option value="6-mo">6 month</option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="delivery-span-selector">
-                                    <label for="delivery-span">Deliver every</label>
-                                    <div class="delivery-span-dropdown">
-                                        <select name="delivery-span" id="delivery-span">
-                                            <option value="1-wk">1 week</option>
-                                            <option value="2-wk">2 weeks</option>
-                                            <option value="3-wk">3 weeks</option>
-                                            <option value="1-mo">1 month</option>
-                                            <option value="1.5-mo">1.5 month</option>
-                                            <option value="2-mo">2 month</option>
-                                            <option value="3-mo">3 month</option>
-                                            <option value="4-mo">4 month</option>
-                                            <option value="5-mo">5 month</option>
-                                            <option value="6-mo">6 month</option>
-                                        </select>
-                                    </div>
-                                </div>
                             </div>
-                        </div>
-                        <div class="cart-item-removal">
-                            <a onclick="alert('You are removing an item')">
-                                <img src="files/icons/remove.svg" alt="Remove the item">
-                            </a>
+                            <div class="cart-item-removal">
+                                <a onclick="alert('You are removing an item')">
+                                    <img src="files/icons/remove.svg" alt="Remove the item">
+                                </a>
+                            </div>
                         </div>
                     </div>
                     <hr>
                     <div class="cart-total">
-                        <h2>Total: $0.00</h2>
+                        <h2 id="cart-total-price">Total: $0.00</h2>
                         <button onclick="window.location.href='account.html'">Check Out</button>
                     </div>
                 </div>

@@ -434,6 +434,10 @@ select {
     background-color: var(--lighter-green);
 }
 
+#cart-item-template {
+    display: none !important;
+}
+
 .cart-item {
     display: flex;
     padding: 20px 0;

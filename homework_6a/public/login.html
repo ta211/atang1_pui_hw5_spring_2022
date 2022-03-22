@@ -13,7 +13,7 @@
         <script src="main.js" type="text/javascript"></script>
     </head>
 
-    <body>
+    <body onload="loadCartSize()">
         <header>
             <h1 class="header-icon">
                 <a href="index.html"><img src="files/icons/icon-full.svg" alt="FoodStory"></a> 
@@ -21,7 +21,7 @@
             <nav>
                 <a href="#"><img src="files/icons/search.svg" alt="search for item"></a>
                 <a onclick="gotoAccountPage('')"><img src="files/icons/account.svg" alt="account"></a>
-                <a href="cart.html" id="cart-icon"><img src="files/icons/cart.svg" alt="cart" onload="loadCartSize()">(0)</a>
+                <a href="cart.html" id="cart-icon"><img src="files/icons/cart.svg" alt="cart">(0)</a>
             </nav>
         </header>
 
