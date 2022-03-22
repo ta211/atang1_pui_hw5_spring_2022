@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>FoodStory - a health food subscription and purchasewebsite</title>
+        <meta charset="UTF-8">
+        <!-- icon -->
+        <link rel="icon" href="files/icons/icon-symbol.svg">
+        <!-- styles -->
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <!-- fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+        <!-- javascript -->
+        <script src="main.js" type="text/javascript"></script>
+    </head>
+
+    <body>
+        <header>
+            <h1 class="header-icon">
+                <a href="index.html"><img src="files/icons/icon-full.svg" alt="FoodStory"></a> 
+            </h1>
+            <nav>
+                <a href="#"><img src="files/icons/search.svg" alt="search for item"></a>
+                <a onclick="gotoAccountPage('')"><img src="files/icons/account.svg" alt="account"></a>
+                <a href="cart.html"><img src="files/icons/cart.svg" alt="cart">(1)</a>
+            </nav>
+        </header>
+
+        <div class="content">
+            <div class="login-container">
+                <h1>Account</h1>
+                <hr>
+                <h2 class="login-notice">You need to log in first to get access to your account information.</h2>
+                <hr>
+                <div class="login-form">
+                    <label for="username" class="text-lg">Username</label>
+                    <br>
+                    <input id="username" type="text">
+                    <br>
+                    <label for="password">Password</label>
+                    <br>
+                    <input id="password" type="text">
+                </div>
+                <button onclick="login()">Log in</button>
+            </div>
+        </div>
+
+        <footer>
+            <p class="text footer-title">FoodStory.com</p>
+            <p class="text-sm footer-copyright">Copyright © 2022, FoodStory</p>
+        </footer>
+    </body>
+</html>
