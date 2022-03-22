@@ -65,6 +65,21 @@ h3 {
 }
 
 /*********** COMPONENTS ************/
+/* unvisited link */
+a:link, a:visited{
+    color: var(--darker-green);
+}
+
+/* mouse over link */
+a:hover{
+    color: hotpink;
+}
+
+/* selected link */
+a:active {
+    color: blue;
+}
+
 button {
     border-radius: 0px;
     border: 0px;
@@ -236,8 +251,7 @@ footer * {
 }
 
 .home-container .product-info {
-    background-color: white;
-    opacity: 70%;
+    background-color: rgba(255, 255, 255, 0.7);
     padding: 0 20px 10px 20px;
     text-align: left;
 }
