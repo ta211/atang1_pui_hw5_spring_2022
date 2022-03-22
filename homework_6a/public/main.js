@@ -126,9 +126,13 @@ function loadCartContent() {
     let cart = JSON.parse(localStorage.getItem("cart"));
     if (Array.isArray(cart)) {
         // hide the notice
-        document.getElementById("empty-notice").classList.add("hidden");
+        if (cart.length > 0) {
+            document.getElementById("empty-notice").classList.add("hidden");
+        }
         // get the template
         let cartItemTemplate = document.getElementById("cart-item-template");
+        // clear the cart inner container (reload)
+        document.getElementById("cart-items-inner").innerHTML="";
         // load each item into the template
         let totalPrice = 0;
         for (let entry of cart.entries()) {
