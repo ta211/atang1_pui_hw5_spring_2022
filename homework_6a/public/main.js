@@ -28,7 +28,7 @@ function logout() {
 
 function gotoAccountPage(prefix) {
     const loggedin = window.localStorage.getItem("logged-in");
-    console.log(loggedin);
+    // console.log(loggedin);
     if (loggedin == "true") {
         window.location.href = prefix + 'account.html';
     } else {
@@ -105,6 +105,8 @@ function addToCart(method) {
     }
     localStorage.setItem("cart", JSON.stringify(cart));
     loadCartSize();
+
+    window.location.href="../../cart.html";
 }
 
 function loadCartSize() {
@@ -132,11 +134,11 @@ function loadCartContent() {
         for (let entry of cart.entries()) {
             let i = entry[0];
             let item = entry[1];
-            console.log(item);
+            // console.log(item);
             
             let cartItem = cartItemTemplate.cloneNode(true);
             cartItem.setAttribute("id", "cart-item-"+i);
-            console.log(cartItem);
+            // console.log(cartItem);
             // Set up item image
             let imgNode = document.createElement("img");
             imgNode.setAttribute("src", item.img);
@@ -177,7 +179,7 @@ function loadCartContent() {
             spanSelector.setAttribute("name", "delivery-span-"+i);
             spanSelector.value = item.span;
             // Append item to cart-items-inner
-            console.log(cartItem);
+            // console.log(cartItem);
             document.getElementById("cart-items-inner").appendChild(cartItem);
         }
         document.getElementById("cart-total-price").textContent = "Total: $" + totalPrice.toFixed(2);

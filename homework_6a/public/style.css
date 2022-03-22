@@ -82,6 +82,17 @@ button:hover {
     background-color: var(--darker-green);
 }
 
+button.text-button {
+    padding: 5px;
+    height: fit-content !important;
+    background-color: transparent;
+    color: var(--darker-green);
+    font-size: inherit; 
+    font-weight: inherit;
+    text-decoration: underline;
+    min-width: fit-content;
+}
+
 input {
     box-sizing: border-box;
     border-radius: 0px;
@@ -251,7 +262,7 @@ footer * {
 }
 
 .home-container .product-info > .second-line > .price {
-    width: 20%;
+    width: 25%;
     text-align: right;
     font-weight: bold;
 }
