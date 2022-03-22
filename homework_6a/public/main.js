@@ -152,7 +152,11 @@ function loadCartContent() {
             cartItem.getElementsByClassName("item-option")[0].textContent = item.option;
             // Set up item price
             cartItem.getElementsByClassName("price")[0].textContent = item.price;
-            totalPrice += Number.parseFloat(item.price.substring(1)) * item.quantity;
+
+            let itemPrice = Number.parseFloat(item.price.substring(1)) * item.quantity;
+            if (!isNaN(itemPrice)) {
+                totalPrice += itemPrice;
+            }
             // Set up checkbox
             let checkbox = cartItem.getElementsByClassName("subscription-checkbox")[0].getElementsByTagName("input")[0];
             checkbox.setAttribute("id", "subscription-"+i);
@@ -178,6 +182,8 @@ function loadCartContent() {
             spanSelector.setAttribute("id", "delivery-span-"+i);
             spanSelector.setAttribute("name", "delivery-span-"+i);
             spanSelector.value = item.span;
+            // Set up removal method
+            cartItem.getElementsByClassName("cart-item-removal-method")[0].setAttribute("onclick", "removeCartItem("+i+");")
             // Append item to cart-items-inner
             // console.log(cartItem);
             document.getElementById("cart-items-inner").appendChild(cartItem);
@@ -185,5 +191,16 @@ function loadCartContent() {
         document.getElementById("cart-total-price").textContent = "Total: $" + totalPrice.toFixed(2);
     } else {
         document.getElementById("empty-notice").removeAttribute("class", "hidden");
+    }
+}
+
+function removeCartItem(index) {
+    let cart = JSON.parse(localStorage.getItem("cart"));
+    let removedItem = cart.splice(index,1)[0];
+    let isExecuted = confirm("Are you sure you want to remove " + removedItem.name + " - " + removedItem.option + " x " + removedItem.quantity + " ?");
+    if (isExecuted) {
+        localStorage.setItem("cart", JSON.stringify(cart));
+        loadCartSize();
+        window.location.reload();
     }
 }
