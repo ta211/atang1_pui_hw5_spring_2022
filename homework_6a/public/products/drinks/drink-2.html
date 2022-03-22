@@ -29,50 +29,45 @@
             <div class="product-container">
                 <div class="product-image-slider">
                     <img src="../../files/icons/left-arrow.svg" class="arrow" alt="view more images to the left">
-                    <img src="../../files/products/drink-1.png" id="product-current-image" alt="4 cups of milk shakes, respectively of flavor vanilla, mango, chocolate, and strawberry">
+                    <img src="../../files/products/drink-2.png" id="product-current-image" alt="4 cups of milk shakes, respectively of flavor vanilla, mango, chocolate, and strawberry">
                     <img src="../../files/icons/right-arrow.svg" class="arrow" alt="view more images to the right">
                 </div>
                 <div class="product-info-container">
-                    <h1 class="product-info-title">Protein Shakes</h1>
+                    <h1 class="product-info-title">Bottled Juice</h1>
                     <div class="product-rating text">
-                        <div class="product-stars" style="--rating: 4.3;" aria-label="Rating 4.3 out of 5."></div>
-                        <div class="product-reviews"><a href="#">95 reviews</a></div>
+                        <div class="product-stars" style="--rating: 3.5;" aria-label="Rating 3.5 out of 5."></div>
+                        <div class="product-reviews"><a href="#">23 reviews</a></div>
                     </div>
                     <hr>
                     <div class="product-description text">
-                        <p>20g of sugar free protein per bottle</p>
-                        <p>A creamy shake that will remind you of childhood milkshakes!</p>
+                        <p>Have a bottle of non-GMO, cold-pressed, 100% juice!</p>
+                        <p>16 fl oz (473ml) per bottle</p>
+                        <p>80% Vitamin A and 100% Vitamin C - % Daily Value (DV) based on a 2000 calorie diet</p>
                     </div>
                     <hr>
                     <div class="product-options text">
                         <p>Flavor:</p>
                         <div class="btn-group">
-                            <!-- Chocolate; Strawberry; Mango; Vanilla -->
-                            <input type="radio" id="flv-choco" value="flv-choco" />
-                            <label class="single-select selected" for="flv-choco" onclick="productBtnGroupUpdate(this)">
-                                    Chocolate
+                            <!-- Cucumber; Orange; Plum -->
+                            <input type="radio" id="flv-cucum" value="flv-cucum" />
+                            <label class="single-select selected" for="flv-cucum" onclick="productBtnGroupUpdate(this)">
+                                    Cucumber
                                     <br>
-                                    $4.00
+                                    $5.00
                             </label>
-                            <input type="radio" id="flv-strbry" value="flv-strbry" />
-                            <label class="single-select" for="flv-strbry" onclick="productBtnGroupUpdate(this)">
+                            <input type="radio" id="flv-orange" value="flv-orange" />
+                            <label class="single-select" for="flv-orange" onclick="productBtnGroupUpdate(this)">
                                 <span>
-                                    Strawberry
+                                    Orange
                                     <br>
-                                    $4.00
+                                    $5.00
                                 </span>
                             </label>
-                            <input type="radio" id="flv-mango" value="flv-mango"/>
-                            <label class="single-select" for="flv-mango" onclick="productBtnGroupUpdate(this)">
-                                Mango
+                            <input type="radio" id="flv-plum" value="flv-plum"/>
+                            <label class="single-select" for="flv-plum" onclick="productBtnGroupUpdate(this)">
+                                Plum
                                 <br>
-                                $4.00
-                            </label>
-                            <input type="radio" id="flv-vnla" value="flv-vnla"/>
-                            <label class="single-select" for="flv-vnla" onclick="productBtnGroupUpdate(this)">
-                                Vanilla
-                                <br>
-                                $4.00
+                                $4.80
                             </label>
                         </div>
                     </div>
@@ -106,9 +101,9 @@
                     </div>
                     <hr>
                     <div class="product-buy">
-                        <button onclick="addToCart('subscribe')">Subscribe</button>
+                        <button onclick="window.location.href='../../cart.html'">Subscribe</button>
                         <p class="text-lg">
-                            or <a onclick="addToCart('one-time')">One-time Purchase</a>
+                            or <a href="#">One-time Purchase</a>
                         </p>
                     </div>
                 </div>

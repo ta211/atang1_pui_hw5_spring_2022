@@ -18,6 +18,10 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+.hidden {
+    display: none;
+}
+
 /*********** TYPOGRAPHY ************/
 h1 {
     font-size: 30px;
