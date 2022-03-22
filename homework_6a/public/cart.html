@@ -21,7 +21,7 @@
             <nav>
                 <a href="#"><img src="files/icons/search.svg" alt="search for item"></a>
                 <a onclick="gotoAccountPage('')"><img src="files/icons/account.svg" alt="account"></a>
-                <a href="cart.html"><img src="files/icons/cart.svg" alt="cart">(1)</a>
+                <a href="cart.html" id="cart-icon"><img src="files/icons/cart.svg" alt="cart" onload="loadCartSize()">(0)</a>
             </nav>
         </header>
 
@@ -30,13 +30,14 @@
                 <h1>Cart</h1>
                 <div class="cart-items-container">
                     <hr>
-                    <div class="cart-item">
+                    <p class="text-lg">Your cart is empty! Go <a href="index.html">shopping</a> to add more items.</p>
+                    <div class="cart-item hidden">
                         <div class="cart-item-img">
-                            <img src="files/products/drink-1.png" alt="4 cups of milk shakes, respectively of flavor vanilla, mango, chocolate, and strawberry">
+                            <img src="" alt="">
                         </div>
                         <div class="cart-item-info">
-                            <div class="text-lg item-name">Protein Shakes</div>
-                            <div class="text item-option">Flavor: Strawberry</div>
+                            <div class="text-lg item-name">Product Name</div>
+                            <div class="text item-option">Option: Selected</div>
                         </div>
                         <div class="cart-item-selectors">
                             <div class="subscription-checkbox text">
@@ -44,7 +45,7 @@
                                 <label for="subscription">
                                     Subscribe and Save
                                     <b class="price">
-                                        $4.00
+                                        $Price
                                     </b>
                                 </label>
                             </div>
@@ -84,7 +85,7 @@
                     </div>
                     <hr>
                     <div class="cart-total">
-                        <h2>Total: $4.00</h2>
+                        <h2>Total: $0.00</h2>
                         <button onclick="window.location.href='account.html'">Check Out</button>
                     </div>
                 </div>

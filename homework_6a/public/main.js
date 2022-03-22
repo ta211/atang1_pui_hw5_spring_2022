@@ -102,4 +102,18 @@ function addToCart(method) {
         cart = [item];
     }
     localStorage.setItem("cart", JSON.stringify(cart));
+    loadCartSize();
+}
+
+function loadCartSize() {
+    let cart = JSON.parse(localStorage.getItem("cart"));
+    let cartSize;
+    let element = document.getElementById("cart-icon");
+    if (Array.isArray(cart)) {
+        cartSize = cart.length;
+    } else {
+        cartSize = 0;
+    }
+    element.removeChild(element.lastChild);
+    element.appendChild(document.createTextNode("("+cartSize+")"));
 }

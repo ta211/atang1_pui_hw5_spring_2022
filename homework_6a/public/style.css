@@ -19,7 +19,11 @@ body {
 }
 
 .hidden {
-    display: none;
+    display: none !important;
+}
+
+.horizontal {
+    display: flex !important;
 }
 
 /*********** TYPOGRAPHY ************/
