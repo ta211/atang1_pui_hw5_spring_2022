@@ -136,7 +136,6 @@ header {
     padding: 10px 25px;
     height: 80px;
     background: linear-gradient(90.4deg, var(--green) 0%, rgba(100, 157, 100, 0) 100%), #FFFFFF;
-    display: flex;
 }
 
 header * {
@@ -144,16 +143,49 @@ header * {
 }
 
 header nav {
-    width: 100%;
-    text-align: right;
+    display: flex;
+    width: 50%;
+    margin-right: 0;
+    height: 100px;
+    margin-top: -98px;
 }
 
-header a {
+header nav a {
     margin-right: 90px;
+    height: 45px;
+}
+
+header nav a div {
+    background-color: white;
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    text-align: center;
+}
+
+header nav a div:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+header nav a div img{
+    padding: auto;
+    height: 25px;
+    width: 25px;
+    padding: 10px;
 }
 
 .header-icon {
     text-align: left;
+}
+
+#cart-icon-size {
+    width: 18px;
+    height: 18px;
+    background-color: hotpink;
+    color: white;
+    position: relative;
+    top: -40px;
+    right: -10px;
 }
 
 /*********** CONTENT ************/

@@ -113,13 +113,17 @@ function loadCartSize() {
     let cart = JSON.parse(localStorage.getItem("cart"));
     let cartSize;
     let element = document.getElementById("cart-icon");
-    if (Array.isArray(cart)) {
+    if (Array.isArray(cart) && cart.length > 0) {
         cartSize = cart.length;
-    } else {
-        cartSize = 0;
+        let sizeNode = document.createElement("div");
+        sizeNode.setAttribute("id", "cart-icon-size");
+        sizeNode.textContent = cartSize;
+        if (element.children.length == 1) {
+            element.appendChild(sizeNode);
+        } else if (element.children.length == 2) {
+            element.replaceChild(element.lastChild, sizeNode);
+        }
     }
-    element.removeChild(element.lastChild);
-    element.appendChild(document.createTextNode("("+cartSize+")"));
 }
 
 function loadCartContent() {
