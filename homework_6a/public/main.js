@@ -121,7 +121,7 @@ function loadCartSize() {
         if (element.children.length == 1) {
             element.appendChild(sizeNode);
         } else if (element.children.length == 2) {
-            element.replaceChild(element.lastChild, sizeNode);
+            element.replaceChild(sizeNode, element.lastChild);
         }
     }
 }
