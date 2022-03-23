@@ -484,10 +484,10 @@ select {
 .cart-items-container .cart-item {
     height: 140px;
 }
-.cart-items-container .cart-item:nth-child(odd) {
+.cart-items-container .cart-item:nth-child(even) {
     background-color: white;
 }
-.cart-items-container .cart-item:nth-child(even) {
+.cart-items-container .cart-item:nth-child(odd) {
     background-color: var(--lighter-green);
 }
 
