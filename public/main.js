@@ -4,7 +4,7 @@ function CartItem(name, subscribe, option, price, quantity, span, img, alt, link
     this.subscribe = subscribe; // boolean
     this.option = option; // "<option name>: <selected option>"
     this.price = price; // "$4.00"
-    this.quantity = quantity; // integer >= 1
+    this.quantity = Number.parseInt(quantity); // integer >= 1
     if (this.subscribe) {
         this.span = span; // "1 week"
     }
@@ -88,6 +88,14 @@ function updateQuantity(item) {
     }
 }
 
+function isSameItem(itemA, itemB) {
+    return (
+        itemA.name == itemB.name && 
+        itemA.subscribe == itemB.subscribe && 
+        itemA.option == itemB.option
+    );
+}
+
 function addToCart(method) {
     // TODO: Subscribed items should be cheaper for like 10%. Add this in the future.
     const name = document.getElementsByClassName("product-info-title")[0].textContent;
@@ -111,14 +119,19 @@ function addToCart(method) {
 
     let cart = JSON.parse(localStorage.getItem("cart"));
     if (Array.isArray(cart)) {
-        cart.push(item);
+        let index = cart.findIndex(element => isSameItem(item, element));
+        if (index != -1) {
+            cart[index].quantity = cart[index].quantity + item.quantity;
+        } else {
+            cart.push(item);
+        }
     } else {
         cart = [item];
     }
     localStorage.setItem("cart", JSON.stringify(cart));
     loadCartSize();
 
-    window.location.href="../../cart.html";
+    // window.location.href="../../cart.html";
 }
 
 function loadCartSize() {
