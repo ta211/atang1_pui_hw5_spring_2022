@@ -14,15 +14,27 @@
 
     </head>
 
-    <body>
+    <body onload="loadCartSize()">
         <header>
             <h1 class="header-icon">
                 <a href="../index.html"><img src="files/icons/icon-full.svg" alt="FoodStory"></a> 
             </h1>
             <nav>
-                <a href="#"><img src="files/icons/search.svg" alt="search for item"></a>
-                <a href="account.html"><img src="files/icons/account.svg" alt="account"></a>
-                <a href="cart.html"><img src="files/icons/cart.svg" alt="cart">(1)</a>
+                <a href="#">
+                    <div>
+                        <img src="files/icons/search.svg" alt="search for item">
+                    </div>
+                </a>
+                <a href="#" onclick="gotoAccountPage('')">
+                    <div>
+                        <img src="files/icons/account.svg" alt="account">
+                    </div>
+                </a>
+                <a href="cart.html" id="cart-icon">
+                    <div>
+                        <img src="files/icons/cart.svg" alt="cart">
+                    </div>
+                </a>
             </nav>
         </header>
 
