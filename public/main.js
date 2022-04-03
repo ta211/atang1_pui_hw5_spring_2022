@@ -91,7 +91,8 @@ function updateQuantity(item) {
 function isSameItem(itemA, itemB) {
     return (
         itemA.name == itemB.name && 
-        itemA.subscribe == itemB.subscribe && 
+        itemA.subscribe == itemB.subscribe &&
+        itemA.span == itemB.span && 
         itemA.option == itemB.option
     );
 }
@@ -139,7 +140,13 @@ function loadCartSize() {
     let cartSize;
     let element = document.getElementById("cart-icon");
     if (Array.isArray(cart) && cart.length > 0) {
-        cartSize = cart.length;
+        // Cart size update
+        cartSize = cart.reduce(
+            (prevSum, currItem) => prevSum + currItem.quantity,
+            0
+        );
+
+        // Update lovely little pink bubble
         let sizeNode = document.createElement("div");
         sizeNode.setAttribute("id", "cart-icon-size");
         sizeNode.textContent = cartSize;
@@ -258,7 +265,7 @@ function updateCartItem(index, attribute) {
             break;
         }
         case "quantity": {
-            updatedItem.quantity = document.getElementById("quantity-"+index).value;
+            updatedItem.quantity = Number.parseInt(document.getElementById("quantity-"+index).value);
             break;
         }
         case "span": {
@@ -272,4 +279,5 @@ function updateCartItem(index, attribute) {
     localStorage.setItem("cart", JSON.stringify(cart));
 
     loadCartContent();
+    loadCartSize();
 }
