@@ -5,7 +5,9 @@ function CartItem(name, subscribe, option, price, quantity, span, img, alt, link
     this.option = option; // "<option name>: <selected option>"
     this.price = price; // "$4.00"
     this.quantity = quantity; // integer >= 1
-    this.span = span; // "1 week"
+    if (this.subscribe) {
+        this.span = span; // "1 week"
+    }
     this.img = img; // "files/products/drink-1.png"
     this.alt = alt;
     this.link = link; // "products/drinks/drink-1.html"
@@ -51,6 +53,11 @@ function decrementQuantity(item) {
     if (prev - 1 <= 1) {
         item.parentNode.children[0].classList.add("disabled");
     } 
+    const dataField = item.getAttribute("data-field");
+    if (dataField.startsWith('quantity-')) {
+        let index = dataField[dataField.length - 1];
+        updateCartItem(Number.parseInt(index), 'quantity');
+    }
 }
 
 function incrementQuantity(item) {
@@ -59,6 +66,11 @@ function incrementQuantity(item) {
     if (prev == 1) {
         item.parentNode.children[0].classList.remove("disabled");
     } 
+    const dataField = item.getAttribute("data-field");
+    if (dataField.startsWith('quantity-')) {
+        let index = dataField[dataField.length - 1];
+        updateCartItem(Number.parseInt(index), 'quantity');
+    }
 }
 
 function updateQuantity(item) {
@@ -172,9 +184,12 @@ function loadCartContent() {
             checkbox.checked=item.subscribe;
             if (item.subscribe) {
                 checkbox.setAttribute("class", "checked");
+                checkbox.setAttribute("onchange","updateCartItem(" + i + ", 'checkbox')");
             } else {
                 checkbox.setAttribute("class", "");
+                cartItem.getElementsByClassName("delivery-span-selector")[0].classList.add("hidden");
             }
+
             // Set up quantity
             let quantitySelector = cartItem.getElementsByClassName("quantity-selector")[0];
             quantitySelector.getElementsByTagName("label")[0].setAttribute("for", "quantity-"+i);
@@ -183,15 +198,20 @@ function loadCartContent() {
             let quantityField = quantitySelector.getElementsByClassName("quantity-field")[0];
             quantityField.setAttribute("id", "quantity-"+i);
             quantityField.setAttribute("name", "quantity-"+i);
+            quantityField.setAttribute("onchange","updateQuantity(this); updateCartItem(" + i + ", 'quantity');");
             quantityField.value = item.quantity;
             updateQuantity(quantityField);
+
             // Set up delivery
             let spanSelector = cartItem.getElementsByTagName("select")[0];
             spanSelector.setAttribute("id", "delivery-span-"+i);
             spanSelector.setAttribute("name", "delivery-span-"+i);
+            spanSelector.setAttribute("onchange","updateCartItem(" + i + ", 'span')");
             spanSelector.value = item.span;
+            
             // Set up removal method
             cartItem.getElementsByClassName("cart-item-removal-method")[0].setAttribute("onclick", "removeCartItem("+i+");")
+
             // Append item to cart-items-inner
             // console.log(cartItem);
             document.getElementById("cart-items-inner").appendChild(cartItem);
@@ -211,4 +231,32 @@ function removeCartItem(index) {
         loadCartSize();
         window.location.reload();
     }
+}
+
+function updateCartItem(index, attribute) {
+    let cart = JSON.parse(localStorage.getItem("cart"));
+    let updatedItem = cart[index];
+    switch(attribute) {
+        case "subscribe": {
+            updatedItem.subscribe = !updatedItem.subscribe;
+            if (!updatedItem.subscribe) {
+                updateCartItem.span = null;
+            }
+            break;
+        }
+        case "quantity": {
+            updatedItem.quantity = document.getElementById("quantity-"+index).value;
+            break;
+        }
+        case "span": {
+            updatedItem.span = document.getElementById("delivery-span-"+index).value;
+            break;
+        }
+    }
+
+    // Update local storage
+    cart.splice(index, 1, updatedItem);
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    loadCartContent();
 }
