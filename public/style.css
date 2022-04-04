@@ -239,6 +239,10 @@ footer * {
     opacity: 1;
 }
 
+#cart-icon {
+    cursor: pointer;
+}
+
 .cart-drawer {
     transform: translateX(0);
     transition-duration: 1s;
