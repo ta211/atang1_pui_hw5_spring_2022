@@ -187,11 +187,6 @@ header nav a div img{
     right: -10px;
 }
 
-/*********** CONTENT ************/
-.content {
-    min-height: calc(100% - 150px);
-}
-
 /*********** FOOTER ************/
 footer {
     color: var(--green);
@@ -219,6 +214,119 @@ footer * {
     font-family: 'Poppins', sans-serif;
     font-style: italic;
     letter-spacing: 0.05em;
+}
+
+/*********** CONTENT ************/
+.content {
+    min-height: calc(100% - 150px);
+}
+
+/*********** CART-DRAWER ************/
+#screen {
+    visibility: hidden;
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 100%;
+    transition: all 1s cubic-bezier(0.29, 0.63, 0.44, 1);
+}
+
+#screen.dark-screen {
+    visibility: visible;
+    opacity: 1;
+}
+
+.cart-drawer {
+    transform: translateX(0);
+    transition-duration: 1s;
+    display: block;
+    height: 100%;
+    width: 40%;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    overflow: scroll;
+    background-color: white;
+}
+
+.cart-drawer-folded {
+    transform: translateX(100%);
+    transition-duration: 1s;
+}
+
+.cart-drawer #empty-notice{
+    margin-left: 30px;
+}
+
+.cart-drawer .cart-drawer-header {
+    display: flex;
+}
+
+.cart-drawer .cart-drawer-header h1 {
+    width: 100%;
+    margin-left: 30px;
+}
+
+.cart-drawer .cart-drawer-header a {
+    margin: auto 20px;
+}
+
+.cart-drawer .cart-items-container {
+    width: 100%;
+}
+
+.cart-drawer .cart-item {
+    padding: 10px;
+}
+
+.cart-drawer .cart-item-img {
+    width: max-content;
+}
+
+.cart-drawer .cart-item-selectors {
+    margin-left: 10px;
+}
+
+.cart-drawer .cart-item-info-subscribe {
+    display: flex;
+}
+
+.cart-drawer .cart-item-info-subscribe .subscription-checkbox {
+    align-self: flex-start;
+    margin-left: 10px;
+}
+
+.cart-drawer .cart-item-info-subscribe .subscription-checkbox label{
+    white-space: nowrap;
+}
+
+.cart-drawer .cart-item-selectors {
+    width: 100%;
+}
+
+.cart-drawer .cart-item-info {
+    width: max-content;
+}
+
+.cart-drawer .cart-item-selectors .quantity-and-delivery {
+    margin-top: 5px;
+}
+
+.cart-drawer .product-selectors > div div:nth-child(2) {
+    width: 70%;
+    margin: 5px;
+}
+
+.cart-drawer .quantity-and-delivery {
+    padding: 5px;
+}
+
+.cart-drawer .cart-total {
+    margin-right: 10px;
 }
 
 /*********** HOME ************/
@@ -441,6 +549,7 @@ footer * {
     border: solid 1px black;
 }
 .quantity-input-group input {
+    font-size: inherit;
     text-align: center;
     border: none;
     width: 100%;
@@ -457,6 +566,7 @@ footer * {
 
 /* delivery span selector */
 select {
+    font-size: inherit;
     height: 25px;
     border: solid 1px black;
 }

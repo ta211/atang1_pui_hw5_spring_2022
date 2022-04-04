@@ -20,21 +20,21 @@ function login() {
     // user.username = username;
     // user.password = password;
     window.localStorage.setItem("logged-in", true);
-    gotoAccountPage('');
+    gotoAccountPage();
 }
 
 function logout() {
     window.localStorage.setItem("logged-in", false);
-    gotoAccountPage('');
+    gotoAccountPage();
 }
 
-function gotoAccountPage(prefix) {
+function gotoAccountPage() {
     const loggedin = window.localStorage.getItem("logged-in");
     // console.log(loggedin);
     if (loggedin == "true") {
-        window.location.href = prefix + 'account.html';
+        window.location.href = '/public/account.html';
     } else {
-        window.location.href = prefix + 'login.html';
+        window.location.href = '/public/login.html';
     }
 }
 
@@ -107,7 +107,7 @@ function addToCart(method) {
     const price = selected.lastChild.textContent.trim();
     const quantity = document.getElementById("quantity").value;
     const span = document.getElementById("delivery-span").value;
-    const img = document.getElementById("product-current-image").getAttribute("src").substring(6);
+    const img = document.getElementById("product-current-image").getAttribute("src");
     const alt = document.getElementById("product-current-image").getAttribute("alt");
     const link = document.location.href;
 
@@ -202,9 +202,9 @@ function loadCartContent() {
             checkbox.setAttribute("id", "subscription-"+i);
             checkbox.setAttribute("name", "subscription-"+i);
             checkbox.checked=item.subscribe;
+            checkbox.setAttribute("onchange","updateCartItem(" + i + ", 'subscribe')");
             if (item.subscribe) {
                 checkbox.setAttribute("class", "checked");
-                checkbox.setAttribute("onchange","updateCartItem(" + i + ", 'checkbox')");
             } else {
                 checkbox.setAttribute("class", "");
                 cartItem.getElementsByClassName("delivery-span-selector")[0].classList.add("hidden");
@@ -280,4 +280,20 @@ function updateCartItem(index, attribute) {
 
     loadCartContent();
     loadCartSize();
+}
+
+function toggleCartDrawer() {
+    const cartDrawer = document.getElementById("cart-drawer");
+    const darkScreen = document.getElementById("screen");
+    if (cartDrawer.classList.contains("cart-drawer-folded")) { // Cart is hidden
+        // Unfold cart
+        cartDrawer.classList.remove("cart-drawer-folded");
+        // Make screen dark
+        darkScreen.classList.add("dark-screen");
+    } else { // Cart is already pulled out
+        // Fold cart
+        cartDrawer.classList.add("cart-drawer-folded");
+        // Remove dark screen
+        darkScreen.classList.remove("dark-screen");
+    }
 }

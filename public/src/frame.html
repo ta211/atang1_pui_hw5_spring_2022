@@ -14,7 +14,7 @@
 
     </head>
 
-    <body onload="loadCartSize()">
+    <body onload="loadCartSize(); loadCartContent();">
         <header>
             <h1 class="header-icon">
                 <a href="../index.html"><img src="files/icons/icon-full.svg" alt="FoodStory"></a> 
@@ -30,7 +30,7 @@
                         <img src="files/icons/account.svg" alt="account">
                     </div>
                 </a>
-                <a href="cart.html" id="cart-icon">
+                <a onclick="toggleCartDrawer()" id="cart-icon">
                     <div>
                         <img src="files/icons/cart.svg" alt="cart">
                     </div>

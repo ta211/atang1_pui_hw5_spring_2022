@@ -4,38 +4,114 @@
         <title>FoodStory - a health food subscription and purchasewebsite</title>
         <meta charset="UTF-8">
         <!-- icon -->
-        <link rel="icon" href="files/icons/icon-symbol.svg">
+        <link rel="icon" href="/public/files/icons/icon-symbol.svg">
         <!-- styles -->
-        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="/public/style.css">
         <!-- fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
         <!-- javascript -->
-        <script src="main.js" type="text/javascript"></script>
+        <script src="/public/main.js" type="text/javascript"></script>
     </head>
 
-    <body onload="loadCartSize()">
+    <body onload="loadCartSize(); loadCartContent();">
         <header>
             <h1 class="header-icon">
-                <a href="index.html"><img src="files/icons/icon-full.svg" alt="FoodStory"></a> 
+                <a href="/public/index.html"><img src="/public/files/icons/icon-full.svg" alt="FoodStory"></a> 
             </h1>
             <nav>
                 <a href="#">
                     <div>
-                        <img src="files/icons/search.svg" alt="search for item">
+                        <img src="/public/files/icons/search.svg" alt="search for item">
                     </div>
                 </a>
                 <a href="#" onclick="gotoAccountPage('')">
                     <div>
-                        <img src="files/icons/account.svg" alt="account">
+                        <img src="/public/files/icons/account.svg" alt="account">
                     </div>
                 </a>
-                <a href="cart.html" id="cart-icon">
+                <a onclick="toggleCartDrawer()" id="cart-icon">
                     <div>
-                        <img src="files/icons/cart.svg" alt="cart">
+                        <img src="/public/files/icons/cart.svg" alt="cart">
                     </div>
                 </a>
             </nav>
         </header>
+
+        <div id="screen"></div>
+
+        <div class="cart-drawer cart-drawer-folded" id="cart-drawer">
+            <div class="cart-drawer-header">
+                <h1>Cart Summary</h1>
+                <a class="cart-drawer-fold-icon" onclick="toggleCartDrawer()">
+                    <img src="/public/files/icons/remove.svg" alt="Fold the cart to the right">
+                </a>
+            </div>
+            <hr>
+            <div class="cart-items-container">
+                <p id="empty-notice" class="text-lg">Your cart is empty! Go <a href="/public/index.html">shopping</a> to add more items.</p>
+                <div id="cart-item-template" class="cart-item">
+                    <div class="cart-item-img">
+                        <!-- <img src="" alt=""> -->
+                    </div>
+                    <div class="cart-item-selectors">
+                        <div class="cart-item-info-subscribe">
+                            <div class="cart-item-info">
+                                <div class="text item-name">Product Name</div>
+                                <div class="text-sm item-option">Option: Selected</div>
+                            </div>
+                            <div class="subscription-checkbox text-sm">
+                                <input type="checkbox" name="subscription" id="subscription" class="checked">
+                                <label for="subscription">
+                                    Subscribe & Save
+                                    <b class="price">
+                                        $Price
+                                    </b>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="quantity-and-delivery product-selectors text-sm">
+                            <div class="quantity-selector">
+                                <label for="quantity">Quantity</label>
+                                <div class="quantity-input-group">
+                                    <input type="button" value="-" class="quantity-minus disabled" data-field="quantity" onclick="decrementQuantity(this)">
+                                    <input type="number" min="1" value="1" name="quantity"  id="quantity" class="quantity-field" onchange="updateQuantity(this)">
+                                    <input type="button" value="+" class="quantity-plus" data-field="quantity" onclick="incrementQuantity(this)">
+                                </div>
+                            </div>
+                            <div class="delivery-span-selector">
+                                <label for="delivery-span">Deliver every</label>
+                                <div class="delivery-span-dropdown">
+                                    <select name="delivery-span" id="delivery-span">
+                                        <option value="1-wk">1 week</option>
+                                        <option value="2-wk">2 weeks</option>
+                                        <option value="3-wk">3 weeks</option>
+                                        <option value="1-mo">1 month</option>
+                                        <option value="1.5-mo">1.5 month</option>
+                                        <option value="2-mo">2 month</option>
+                                        <option value="3-mo">3 month</option>
+                                        <option value="4-mo">4 month</option>
+                                        <option value="5-mo">5 month</option>
+                                        <option value="6-mo">6 month</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cart-item-removal">
+                        <a class="cart-item-removal-method" onclick="alert('You are removing an item')">
+                            <img src="/public/files/icons/remove.svg" alt="Remove the item">
+                        </a>
+                    </div>
+                </div>
+                <div id="cart-items-inner">
+                </div>
+            </div>
+            <hr>
+            <div class="cart-total">
+                <h2 id="cart-total-price">Total: $0.00</h2>
+                <button>Check Out</button>
+            </div>
+        </div>
 
         <div class="content">
             <div class="account-container">
@@ -53,7 +129,7 @@
                     </nav>
                     <div class="bg-green-light text-lg" id="account-subscriptions">
                         <p style="font-weight: bold;">You have no upcoming subscriptions yet!</p>
-                        <p>Go <a href="index.html">shopping</a>.</p>
+                        <p>Go <a href="/public/index.html">shopping</a>.</p>
                     </div>
                 </div>
             </div>
