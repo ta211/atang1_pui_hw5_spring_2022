@@ -119,20 +119,24 @@ function addToCart(method) {
     }
 
     let cart = JSON.parse(localStorage.getItem("cart"));
+    let itemLocation = -1;
     if (Array.isArray(cart)) {
         let index = cart.findIndex(element => isSameItem(item, element));
         if (index != -1) {
+            itemLocation = index;
             cart[index].quantity = cart[index].quantity + item.quantity;
         } else {
+            itemLocation = cart.length;
             cart.push(item);
         }
     } else {
+        itemLocation = 0;
         cart = [item];
     }
     localStorage.setItem("cart", JSON.stringify(cart));
     loadCartSize();
 
-    // window.location.href="../../cart.html";
+    toggleCartDrawer(itemLocation);
 }
 
 function loadCartSize() {
@@ -282,7 +286,8 @@ function updateCartItem(index, attribute) {
     loadCartSize();
 }
 
-function toggleCartDrawer() {
+function toggleCartDrawer(itemLocation) {
+    loadCartContent();
     const cartDrawer = document.getElementById("cart-drawer");
     const darkScreen = document.getElementById("screen");
     if (cartDrawer.classList.contains("cart-drawer-folded")) { // Cart is hidden
@@ -295,5 +300,9 @@ function toggleCartDrawer() {
         cartDrawer.classList.add("cart-drawer-folded");
         // Remove dark screen
         darkScreen.classList.remove("dark-screen");
+    }
+    if (!isNaN(itemLocation) && itemLocation != -1) {
+        document.getElementById('cart-item-'+itemLocation).classList.add("glowing");
+        cartDrawer.scrollTop = document.getElementById('cart-item-'+itemLocation).offsetTop;
     }
 }

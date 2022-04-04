@@ -329,6 +329,11 @@ footer * {
     margin-right: 10px;
 }
 
+/* Cart Drawer - Special Effects around Newly Added Item */
+.cart-drawer .glowing {
+    animation: pulse 2s 3;
+}
+
 /*********** HOME ************/
 .home-container {
     padding: 15px 30px 0 30px;
@@ -697,4 +702,21 @@ nav .selected {
     height: 250px;
     padding: 10px 20px;
     margin: 0 100px 0 50px;
+}
+
+/*********** ANIMATION ************/
+/* Mostly borrowed from https://codepen.io/olam/pen/KKMvWM */
+@keyframes pulse {
+    0% {
+        -moz-box-shadow: 0 0 0 0 rgba(204,169,44, 1) inset;
+        box-shadow: 0 0 0 0 rgba(204,169,44, 1) inset;
+    }
+    70% {
+        -moz-box-shadow: 0 0 0 10px rgba(204,169,44, 0) inset;
+        box-shadow: 0 0 0 10px rgba(204,169,44, 0) inset;
+    }
+    100% {
+        -moz-box-shadow: 0 0 0 0 rgba(204,169,44, 1) inset;
+        box-shadow: 0 0 0 0 rgba(204,169,44, 1) inset;
+    }
 }
