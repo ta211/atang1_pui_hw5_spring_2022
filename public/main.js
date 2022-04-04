@@ -32,9 +32,9 @@ function gotoAccountPage() {
     const loggedin = window.localStorage.getItem("logged-in");
     // console.log(loggedin);
     if (loggedin == "true") {
-        window.location.href = '/public/account.html';
+        window.location.href = '/account.html';
     } else {
-        window.location.href = '/public/login.html';
+        window.location.href = '/login.html';
     }
 }
 

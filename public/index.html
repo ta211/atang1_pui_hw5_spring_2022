@@ -10,28 +10,28 @@
         <!-- fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
         <!-- javascript -->
-        <script src="/public/main.js" type="text/javascript"></script>
+        <script src="/main.js" type="text/javascript"></script>
     </head>
 
     <body onload="loadCartSize(); loadCartContent();">
         <header>
             <h1 class="header-icon">
-                <a href="index.html"><img src="/public/files/icons/icon-full.svg" alt="FoodStory"></a> 
+                <a href="index.html"><img src="/files/icons/icon-full.svg" alt="FoodStory"></a> 
             </h1>
             <nav>
                 <a href="#">
                     <div>
-                        <img src="/public/files/icons/search.svg" alt="search for item">
+                        <img src="/files/icons/search.svg" alt="search for item">
                     </div>
                 </a>
                 <a href="#" onclick="gotoAccountPage('')">
                     <div>
-                        <img src="/public/files/icons/account.svg" alt="account">
+                        <img src="/files/icons/account.svg" alt="account">
                     </div>
                 </a>
                 <a onclick="toggleCartDrawer()" id="cart-icon">
                     <div>
-                        <img src="/public/files/icons/cart.svg" alt="cart">
+                        <img src="/files/icons/cart.svg" alt="cart">
                     </div>
                 </a>
             </nav>
@@ -42,14 +42,14 @@
         <div class="cart-drawer cart-drawer-folded" id="cart-drawer">
             <div class="cart-drawer-header">
                 <h1>Cart Summary</h1>
-                <a href="/public/cart.html">expand</a>
+                <a href="/cart.html">expand</a>
                 <a class="cart-drawer-fold-icon" onclick="toggleCartDrawer()">
-                    <img src="/public/files/icons/remove.svg" alt="Fold the cart to the right">
+                    <img src="/files/icons/remove.svg" alt="Fold the cart to the right">
                 </a>
             </div>
             <hr>
             <div class="cart-items-container">
-                <p id="empty-notice" class="text-lg">Your cart is empty! Go <a href="/public/index.html">shopping</a> to add more items.</p>
+                <p id="empty-notice" class="text-lg">Your cart is empty! Go <a href="/index.html">shopping</a> to add more items.</p>
                 <div id="cart-item-template" class="cart-item">
                     <div class="cart-item-img">
                         <!-- <img src="" alt=""> -->
@@ -100,7 +100,7 @@
                     </div>
                     <div class="cart-item-removal">
                         <a class="cart-item-removal-method" onclick="alert('You are removing an item')">
-                            <img src="/public/files/icons/remove.svg" alt="Remove the item">
+                            <img src="/files/icons/remove.svg" alt="Remove the item">
                         </a>
                     </div>
                 </div>
@@ -123,20 +123,20 @@
                         <a href="#">Powder</a>
                         <a href="#">Bars</a>
                         <div id="view-more-product">
-                            <a href="#">View All Products <img src="/public/files/icons/long-right-arrow.svg" alt="#"></a>
+                            <a href="#">View All Products <img src="/files/icons/long-right-arrow.svg" alt="#"></a>
                         </div>
                     </nav>
 
                     <div class="home-products">
-                        <img src="/public/files/icons/left-arrow.svg" alt="view products to the left">
+                        <img src="/files/icons/left-arrow.svg" alt="view products to the left">
                         
                         <div class="product-container">
                             <div class="product-bg bg-grey">
-                                <a href="/public/products/drinks/drink-1.html">
-                                    <img src="/public/files/products/drink-1.png" alt="4 cups of milk shakes, respectively of flavor vanilla, mango, chocolate, and strawberry">
+                                <a href="/products/drinks/drink-1.html">
+                                    <img src="/files/products/drink-1.png" alt="4 cups of milk shakes, respectively of flavor vanilla, mango, chocolate, and strawberry">
                                 </a>
                                 <div class="product-info">
-                                    <a href="/public/products/drinks/drink-1.html" class="text-lg">Protein Shakes</a>
+                                    <a href="/products/drinks/drink-1.html" class="text-lg">Protein Shakes</a>
                                     <div class="text second-line">
                                         <div class="options"><b class="option-selected">Chocolate</b>; Strawberry; Mango; Vanilla</div>
                                         <div class="price">$4.00</div>
@@ -148,11 +148,11 @@
 
                         <div class="product-container">
                             <div class="product-bg bg-grey">
-                                <a href="/public/products/drinks/drink-2.html">
-                                    <img src="/public/files/products/drink-2.png" alt="3 bottles of juicy tox, respectively of flavor cucumber, orange, and plum.">
+                                <a href="/products/drinks/drink-2.html">
+                                    <img src="/files/products/drink-2.png" alt="3 bottles of juicy tox, respectively of flavor cucumber, orange, and plum.">
                                 </a>
                                 <div class="product-info">
-                                    <a href="/public/products/drinks/drink-2.html" class="text-lg">Bottled Juice</a>
+                                    <a href="/products/drinks/drink-2.html" class="text-lg">Bottled Juice</a>
                                     <div class="text second-line">
                                         <div class="options"><b class="option-selected">Cucumber</b>; Orange; Plum </div>
                                         <div class="price">$5.00</div>
@@ -164,11 +164,11 @@
 
                         <div class="product-container">
                             <div class="product-bg bg-grey">
-                                <a href="/public/products/drinks/drink-3.html">
-                                    <img src="/public/files/products/drink-3.png" alt="a bottle of Super Green Formula, beside which is a cup of green juice brewed with the content in the bottle">
+                                <a href="/products/drinks/drink-3.html">
+                                    <img src="/files/products/drink-3.png" alt="a bottle of Super Green Formula, beside which is a cup of green juice brewed with the content in the bottle">
                                 </a> 
                                 <div class="product-info">
-                                    <a href="/public/products/drinks/drink-3.html" class="text-lg">Super Green Formula</a>
+                                    <a href="/products/drinks/drink-3.html" class="text-lg">Super Green Formula</a>
                                     <div class="text second-line">
                                         <div class="options"><b class="option-selected">140g</b>; 300g; 600g</div>
                                         <div class="price">$10.00</div>
@@ -178,7 +178,7 @@
                             <a href="#" class="text">Quick View</a>
                         </div>
 
-                        <img src="/public/files/icons/right-arrow.svg" alt="view products to the right">
+                        <img src="/files/icons/right-arrow.svg" alt="view products to the right">
                     </div>
                 </div>
             </div>
