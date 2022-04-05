@@ -10,7 +10,7 @@
         <!-- fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
         <!-- javascript -->
-        <script src="/main.js" type="text/javascript"></script>
+        <script src="/main.js"></script>
     </head>
 
     <body onload="loadCartSize(); loadCartContent();">
@@ -72,17 +72,17 @@
                         </div>
                         <div class="quantity-and-delivery product-selectors text-sm">
                             <div class="quantity-selector">
-                                <label for="quantity">Quantity</label>
+                                <label for="quantity-template">Quantity</label>
                                 <div class="quantity-input-group">
-                                    <input type="button" value="-" class="quantity-minus disabled" data-field="quantity" onclick="decrementQuantity(this)">
-                                    <input type="number" min="1" value="1" name="quantity"  id="quantity" class="quantity-field" onchange="updateQuantity(this)">
-                                    <input type="button" value="+" class="quantity-plus" data-field="quantity" onclick="incrementQuantity(this)">
+                                    <input type="button" value="-" class="quantity-minus disabled" data-field="quantity-template" onclick="decrementQuantity(this)">
+                                    <input type="number" min="1" value="1" name="quantity-template"  id="quantity-template" class="quantity-field" onchange="updateQuantity(this)">
+                                    <input type="button" value="+" class="quantity-plus" data-field="quantity-template" onclick="incrementQuantity(this)">
                                 </div>
                             </div>
                             <div class="delivery-span-selector">
-                                <label for="delivery-span">Deliver every</label>
+                                <label for="delivery-span-template">Deliver every</label>
                                 <div class="delivery-span-dropdown">
-                                    <select name="delivery-span" id="delivery-span">
+                                    <select name="delivery-span-template" id="delivery-span-template">
                                         <option value="1-wk">1 week</option>
                                         <option value="2-wk">2 weeks</option>
                                         <option value="3-wk">3 weeks</option>
@@ -124,7 +124,7 @@
                 <div class="product-info-container">
                     <h1 class="product-info-title">Bottled Juice</h1>
                     <div class="product-rating text">
-                        <div class="product-stars" style="--rating: 3.5;" aria-label="Rating 3.5 out of 5."></div>
+                        <div class="product-stars" style="--rating: 3.5;" role="img" aria-label="Rating 3.5 out of 5."></div>
                         <div class="product-reviews"><a href="#">23 reviews</a></div>
                     </div>
                     <hr>
